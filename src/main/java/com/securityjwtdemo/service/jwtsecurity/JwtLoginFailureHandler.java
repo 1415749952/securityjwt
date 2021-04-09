@@ -26,8 +26,7 @@ public class JwtLoginFailureHandler extends SimpleUrlAuthenticationFailureHandle
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         String msg = "登陆失败";
-        if (exception instanceof BadCredentialsException ||
-                exception instanceof UsernameNotFoundException) {
+        if (exception instanceof BadCredentialsException || exception instanceof UsernameNotFoundException) {
             msg = "账户名或者密码输入错误!";
         } else if (exception instanceof LockedException) {
             msg = "账户被锁定，请联系管理员!";
